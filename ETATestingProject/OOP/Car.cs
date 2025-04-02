@@ -42,7 +42,7 @@ namespace ETAProject.OOP
             Console.WriteLine("Cilinder of the car is " + cilinder);
             if(gearboxtype != null)
             {
-                Console.WriteLine("Cilinder of the car is " + gearboxtype);
+                Console.WriteLine("Gearbox of the car is " + gearboxtype);
             }
         }
     }
