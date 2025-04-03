@@ -12,7 +12,7 @@ namespace ETAAutomationTesting.Tests
         public void TestNavigationOnHomePage()
         {
             homePage = new HomePage(driver);
-            homePage.navigateToGooglePage();
+            homePage.navigateToDemoQAPage();
             Assert.IsTrue(driver.Title.Contains("DEMOQA"));
         }
 
@@ -20,7 +20,7 @@ namespace ETAAutomationTesting.Tests
         public void TestClickOnCardElements()
         {
             homePage = new HomePage(driver);
-            homePage.navigateToGooglePage();
+            homePage.navigateToDemoQAPage();
             Assert.IsTrue(driver.Title.Contains("DEMOQA"));
             homePage.navigateToSpecificPage("Elements");
             Assert.IsTrue(driver.Url.Equals("https://demoqa.com/elements"));
@@ -30,7 +30,7 @@ namespace ETAAutomationTesting.Tests
         public void TestClickOnFormsCardElement()
         {
             homePage = new HomePage(driver);
-            homePage.navigateToGooglePage();
+            homePage.navigateToDemoQAPage();
             Assert.IsTrue(driver.Title.Contains("DEMOQA"));
             homePage.navigateToSpecificPage("Forms");
             Assert.IsTrue(driver.Url.Equals("https://demoqa.com/forms"));
@@ -40,7 +40,7 @@ namespace ETAAutomationTesting.Tests
         public void TestClickOnAlertsCardElement()
         {
             homePage = new HomePage(driver);
-            homePage.navigateToGooglePage();
+            homePage.navigateToDemoQAPage();
             Assert.IsTrue(driver.Title.Contains("DEMOQA"));
             homePage.navigateToSpecificPage("Alerts, Frame & Windows");
             Assert.IsTrue(driver.Url.Equals("https://demoqa.com/alertsWindows"));
@@ -50,7 +50,7 @@ namespace ETAAutomationTesting.Tests
         public void TestClickOnWidgetsCardElement()
         {
             homePage = new HomePage(driver);
-            homePage.navigateToGooglePage();
+            homePage.navigateToDemoQAPage();
             Assert.IsTrue(driver.Title.Contains("DEMOQA"));
             homePage.navigateToSpecificPage("Widgets");
             Assert.IsTrue(driver.Url.Equals("https://demoqa.com/widgets"));
@@ -60,7 +60,7 @@ namespace ETAAutomationTesting.Tests
         public void TestClickOnInteractionsCardElement()
         {
             homePage = new HomePage(driver);
-            homePage.navigateToGooglePage();
+            homePage.navigateToDemoQAPage();
             Assert.IsTrue(driver.Title.Contains("DEMOQA"));
             homePage.navigateToSpecificPage("Interactions");
             Assert.IsTrue(driver.Url.Equals("https://demoqa.com/interaction"));
@@ -70,7 +70,7 @@ namespace ETAAutomationTesting.Tests
         public void TestClickOnBooksCardElement()
         {
             homePage = new HomePage(driver);
-            homePage.navigateToGooglePage();
+            homePage.navigateToDemoQAPage();
             Assert.IsTrue(driver.Title.Contains("DEMOQA"));
             //homePage.navigateToSpecificPage("Book Store Application");
             homePage.ForceClickBooks();

@@ -10,9 +10,9 @@ namespace ETAAutomationTesting.Pages
 
         }
 
-        public IReadOnlyCollection<IWebElement> cardElements => WebDriver.FindElements(By.CssSelector("div.card-body > h5"));
+        private IReadOnlyCollection<IWebElement> cardElements => WebDriver.FindElements(By.CssSelector("div.card-body > h5"));
 
-        public void navigateToGooglePage()
+        public void navigateToDemoQAPage()
         {
             WebDriver.Navigate().GoToUrl("https://demoqa.com/");
             WaitForPageToLoad();

@@ -21,7 +21,7 @@ namespace ETAAutomationTesting.HelperMethods
             this.driver = driver;
         }
 
-        public void WaitElementToBeVisible(IWebElement webElement)
+        public void WaitElementToBeVisibleAndEnabled(IWebElement webElement)
         {
             wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             wait.Until(_ =>
@@ -41,21 +41,44 @@ namespace ETAAutomationTesting.HelperMethods
             });
         }
 
+        public void WaitElementToBeVisible(IWebElement webElement)
+        {
+            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            wait.Until(_ =>
+            {
+                try
+                {
+                    return webElement.Displayed;
+                }
+                catch (StaleElementReferenceException)
+                {
+                    return false;
+                }
+                catch (NoSuchElementException)
+                {
+                    return false;
+                }
+            });
+        }
+
         public void ClickElement(IWebElement webElement)
         {
             WaitElementToBeVisible(webElement);
+            ScrollToElement(webElement);
             webElement.Click();
         }
 
         public void FillElement(IWebElement webElement, string keyToSend)
         {
             WaitElementToBeVisible(webElement);
+            ScrollToElement(webElement);
             webElement.SendKeys(keyToSend);
         }
 
         public void SelectDropdownByText(IWebElement webElement, string textToSelect)
         {
             WaitElementToBeVisible(webElement);
+            ScrollToElement(webElement);
             SelectElement selectElement = new SelectElement(webElement);
             selectElement.SelectByText(textToSelect);
         }
@@ -63,6 +86,7 @@ namespace ETAAutomationTesting.HelperMethods
         public void SelectDropdownByValue(IWebElement webElement, string valueToSelect)
         {
             WaitElementToBeVisible(webElement);
+            ScrollToElement(webElement);
             SelectElement selectElement = new SelectElement(webElement);
             selectElement.SelectByValue(valueToSelect);
         }
@@ -70,6 +94,7 @@ namespace ETAAutomationTesting.HelperMethods
         public void SelectDropdownByIndex(IWebElement webElement, int index)
         {
             WaitElementToBeVisible(webElement);
+            ScrollToElement(webElement);
             SelectElement selectElement = new SelectElement(webElement);
             selectElement.SelectByIndex(index);
         }
