@@ -39,6 +39,14 @@ namespace ETAAutomationTesting.Pages
         private IWebElement selectedOptionArea => WebDriver.FindElement(By.Id("result"));
         #endregion
 
+        #region Radio Button section elements
+
+        private IWebElement yesRadioButton => WebDriver.FindElement(By.XPath("//label[@for='yesRadio']"));
+        private IWebElement impressiveRadioButton => WebDriver.FindElement(By.XPath("//label[@for='impressiveRadio']"));
+        private IWebElement noRadioButton => WebDriver.FindElement(By.XPath("//label[@for='noRadio']"));
+        private IWebElement checkBoxResultArea => WebDriver.FindElement(By.ClassName("mt-3"));
+        #endregion
+
         public void ClickElementsBarOption(string option)
         {
 
@@ -114,6 +122,35 @@ namespace ETAAutomationTesting.Pages
             return selectedOptionArea.Displayed
                 && selectedOptionArea.Text.Contains("You have selected")
                 && selectedOptionArea.Text.ToLower().Replace("you have selected", "").Replace("\r", "").Replace("\n", " ").Trim().Contains(optionToCheck.ToLower().Trim());
+        }
+        #endregion
+
+        #region Radio button section methods
+
+        public bool NoButtonDissabled()
+        {
+            return noRadioButton.Enabled;
+        }
+
+        public bool ValidateRadioButtonSelected(string option)
+        {
+            switch(option)
+            {
+                case "Yes":
+                    elementMethods.ClickElement(yesRadioButton);
+                    break;
+                case "Impressive":
+                    elementMethods.ClickElement(impressiveRadioButton);
+                    break;
+                default:
+                    elementMethods.ClickElement(yesRadioButton);
+                    break;
+
+
+            }
+            return checkBoxResultArea.Displayed &&
+                checkBoxResultArea.Text.Contains("You have selected") &&
+                checkBoxResultArea.Text.ToLower().Trim().Contains(option.ToLower().Trim());
         }
         #endregion
     }
