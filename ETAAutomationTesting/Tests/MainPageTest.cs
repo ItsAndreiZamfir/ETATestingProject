@@ -23,7 +23,7 @@ namespace ETAAutomationTesting.Tests
             homePage.navigateToSpecificPage("Elements");
             Assert.IsTrue(driver.Url.Equals("https://demoqa.com/elements"));
             mainPage = new MainPage(driver);
-            mainPage.ClickElementsBarOption("Text Box");
+            mainPage.ClickNavigationBarOption("Text Box");
 
         }
 
@@ -36,7 +36,7 @@ namespace ETAAutomationTesting.Tests
             homePage.navigateToSpecificPage("Elements");
             Assert.IsTrue(driver.Url.Equals("https://demoqa.com/elements"));
             mainPage = new MainPage(driver);
-            mainPage.ClickElementsBarOption("Text Box");
+            mainPage.ClickNavigationBarOption("Text Box");
             mainPage.FillTextBoxAreaElements("Andrei", "Andrei@test.com", "somewhere in Pitesti", "somewhere in Pitesti again");
             Assert.IsTrue(mainPage.validateOutputArea("Andrei", "Andrei@test.com", "somewhere in Pitesti", "somewhere in Pitesti again"));
             
@@ -51,7 +51,7 @@ namespace ETAAutomationTesting.Tests
             homePage.navigateToSpecificPage("Elements");
             Assert.IsTrue(driver.Url.Equals("https://demoqa.com/elements"));
             mainPage = new MainPage(driver);
-            mainPage.ClickElementsBarOption("Check Box");
+            mainPage.ClickNavigationBarOption("Check Box");
             mainPage.ClickCheckboxByTitle("Desktop");
             Assert.IsTrue(mainPage.ValidateCheckboxTick("Desktop"));
 
@@ -66,7 +66,7 @@ namespace ETAAutomationTesting.Tests
             homePage.navigateToSpecificPage("Elements");
             Assert.IsTrue(driver.Url.Equals("https://demoqa.com/elements"));
             mainPage = new MainPage(driver);
-            mainPage.ClickElementsBarOption("Radio Button");
+            mainPage.ClickNavigationBarOption("Radio Button");
             Assert.IsTrue(mainPage.NoButtonDissabled());
             Assert.IsTrue(mainPage.ValidateRadioButtonSelected("Impressive"));
             Assert.IsTrue(mainPage.ValidateRadioButtonSelected("Yes"));
@@ -81,11 +81,23 @@ namespace ETAAutomationTesting.Tests
             homePage.navigateToSpecificPage("Elements");
             Assert.IsTrue(driver.Url.Equals("https://demoqa.com/elements"));
             mainPage = new MainPage(driver);
-            mainPage.ClickElementsBarOption("Buttons");
+            mainPage.ClickNavigationBarOption("Buttons");
             
             Assert.IsTrue(mainPage.isDoubleClickedMessageVisible());
             Assert.IsTrue(mainPage.isRightClickedMessageVisible());
             Assert.IsTrue(mainPage.isClickMeMessageVisible());
+        }
+
+        [Test]
+        public void ClickOnSliderFromWidgetsNavBar()
+        {
+            homePage = new HomePage(driver);
+            homePage.navigateToDemoQAPage();
+            Assert.IsTrue(driver.Title.Contains("DEMOQA"));
+            homePage.navigateToSpecificPage("Widgets");
+            mainPage = new MainPage(driver);
+            mainPage.ClickNavigationBarOption("Slider");
+
         }
     }
 }

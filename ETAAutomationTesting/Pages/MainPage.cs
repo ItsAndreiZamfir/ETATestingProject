@@ -58,7 +58,7 @@ namespace ETAAutomationTesting.Pages
 
         #endregion
 
-        public void ClickElementsBarOption(string option)
+        public void ClickNavigationBarOption(string option)
         {
 
             foreach (var element in elementsListItems)
