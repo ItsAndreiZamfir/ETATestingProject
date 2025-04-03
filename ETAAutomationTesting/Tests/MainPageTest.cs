@@ -71,5 +71,21 @@ namespace ETAAutomationTesting.Tests
             Assert.IsTrue(mainPage.ValidateRadioButtonSelected("Impressive"));
             Assert.IsTrue(mainPage.ValidateRadioButtonSelected("Yes"));
         }
+
+        [Test]
+        public void ValidateButtonsSection()
+        {
+            homePage = new HomePage(driver);
+            homePage.navigateToDemoQAPage();
+            Assert.IsTrue(driver.Title.Contains("DEMOQA"));
+            homePage.navigateToSpecificPage("Elements");
+            Assert.IsTrue(driver.Url.Equals("https://demoqa.com/elements"));
+            mainPage = new MainPage(driver);
+            mainPage.ClickElementsBarOption("Buttons");
+            
+            Assert.IsTrue(mainPage.isDoubleClickedMessageVisible());
+            Assert.IsTrue(mainPage.isRightClickedMessageVisible());
+            Assert.IsTrue(mainPage.isClickMeMessageVisible());
+        }
     }
 }

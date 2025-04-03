@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,6 +46,16 @@ namespace ETAAutomationTesting.Pages
         private IWebElement impressiveRadioButton => WebDriver.FindElement(By.XPath("//label[@for='impressiveRadio']"));
         private IWebElement noRadioButton => WebDriver.FindElement(By.XPath("//label[@for='noRadio']"));
         private IWebElement checkBoxResultArea => WebDriver.FindElement(By.ClassName("mt-3"));
+        #endregion
+
+        #region Buttons section
+        private IWebElement doubleClickMeButton => WebDriver.FindElement(By.Id("doubleClickBtn"));
+        private IWebElement rightClickMeButton => WebDriver.FindElement(By.Id("rightClickBtn"));
+        private IWebElement clickMeButton => WebDriver.FindElement(By.XPath("//button[text()='Click Me']"));
+        private IWebElement doubleClickMessage => WebDriver.FindElement(By.XPath("//p[@id='doubleClickMessage']"));
+        private IWebElement rightClickMessage => WebDriver.FindElement(By.XPath("//p[@id='rightClickMessage']"));
+        private IWebElement dynamicClickMessage => WebDriver.FindElement(By.XPath("//p[@id='dynamicClickMessage']"));
+
         #endregion
 
         public void ClickElementsBarOption(string option)
@@ -151,6 +162,26 @@ namespace ETAAutomationTesting.Pages
             return checkBoxResultArea.Displayed &&
                 checkBoxResultArea.Text.Contains("You have selected") &&
                 checkBoxResultArea.Text.ToLower().Trim().Contains(option.ToLower().Trim());
+        }
+        #endregion
+
+        #region Methods for button section
+        public bool isDoubleClickedMessageVisible()
+        {
+            elementMethods.TriggerDoubleClickWithJS(doubleClickMeButton);
+            return doubleClickMessage.Displayed && doubleClickMessage.Text.Contains("You have done a double click");
+        }
+
+        public bool isRightClickedMessageVisible()
+        {
+            elementMethods.ForceRightClickWithJS(rightClickMeButton);
+            return rightClickMessage.Displayed && rightClickMessage.Text.Contains("You have done a right click");
+        }
+
+        public bool isClickMeMessageVisible()
+        {
+            elementMethods.ClickElement(clickMeButton);
+            return dynamicClickMessage.Displayed && dynamicClickMessage.Text.Contains("You have done a dynamic click");
         }
         #endregion
     }
