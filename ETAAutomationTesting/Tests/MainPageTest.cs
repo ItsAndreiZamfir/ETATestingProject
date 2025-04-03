@@ -41,5 +41,20 @@ namespace ETAAutomationTesting.Tests
             Assert.IsTrue(mainPage.validateOutputArea("Andrei", "Andrei@test.com", "somewhere in Pitesti", "somewhere in Pitesti again"));
             
         }
+
+        [Test]
+        public void ValidateCheckbox()
+        {
+            homePage = new HomePage(driver);
+            homePage.navigateToDemoQAPage();
+            Assert.IsTrue(driver.Title.Contains("DEMOQA"));
+            homePage.navigateToSpecificPage("Elements");
+            Assert.IsTrue(driver.Url.Equals("https://demoqa.com/elements"));
+            mainPage = new MainPage(driver);
+            mainPage.ClickElementsBarOption("Check Box");
+            mainPage.ClickCheckboxByTitle("Desktop");
+            Assert.IsTrue(mainPage.ValidateCheckboxTick("Desktop"));
+
+        }
     }
 }

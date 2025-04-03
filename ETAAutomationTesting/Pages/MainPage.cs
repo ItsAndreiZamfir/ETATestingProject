@@ -18,7 +18,7 @@ namespace ETAAutomationTesting.Pages
 
         private IReadOnlyCollection<IWebElement> elementsListItems => elementsOptions.FindElements(By.CssSelector("ul.menu-list li"));
 
-        #region Text Box frame elements
+        #region Text Box frame section elements
 
         private IWebElement fullNameElement => WebDriver.FindElement(By.XPath("//input[@id='userName']"));
         private IWebElement emailElement => WebDriver.FindElement(By.XPath("//input[@id='userEmail']"));
@@ -29,6 +29,14 @@ namespace ETAAutomationTesting.Pages
 
         private IWebElement outputAreaElement => WebDriver.FindElement(By.Id("output"));
 
+        #endregion
+
+        #region Check box frame section elements
+        private IWebElement checkboxElement => WebDriver.FindElement(By.ClassName("rct-checkbox"));
+        private IWebElement expandButton => WebDriver.FindElement(By.XPath("//button[@aria-label='Expand all']"));
+        private IWebElement collapseButton => WebDriver.FindElement(By.XPath("//button[@aria-label='Collapse all']"));
+
+        private IWebElement selectedOptionArea => WebDriver.FindElement(By.Id("result"));
         #endregion
 
         public void ClickElementsBarOption(string option)
@@ -45,6 +53,8 @@ namespace ETAAutomationTesting.Pages
             }
             throw new Exception($"Option with text '{option}' not found in elements navbar.");
         }
+
+        #region Text box section methods
 
         public void FillTextBoxAreaElements(string fullName, string email, string currentAddress, string permanentAddress)
         {
@@ -75,5 +85,36 @@ namespace ETAAutomationTesting.Pages
                     expectedPermanentAddress.Equals(actualPermanentAddress, StringComparison.OrdinalIgnoreCase);
             }
         }
+
+        #endregion
+
+        #region Checkbox section methods
+
+        public void ClickCheckboxByTitle(string checkboxTitle)
+        {
+            elementMethods.ClickElement(expandButton);
+            var titles = WebDriver.FindElements(By.CssSelector("span.rct-title"));
+
+            foreach (var title in titles)
+            {
+                if (title.Text.Trim().Equals(checkboxTitle, StringComparison.OrdinalIgnoreCase))
+                {
+                    var checkboxSpan = title.FindElement(By.XPath("./preceding-sibling::span[contains(@class, 'rct-checkbox')]"));
+
+                    elementMethods.ClickElement(checkboxSpan);
+                    return;
+                }
+            }
+
+            throw new Exception($"Checkbox with title '{checkboxTitle}' not found.");
+        }
+
+        public bool ValidateCheckboxTick(string optionToCheck)
+        {
+            return selectedOptionArea.Displayed
+                && selectedOptionArea.Text.Contains("You have selected")
+                && selectedOptionArea.Text.ToLower().Replace("you have selected", "").Replace("\r", "").Replace("\n", " ").Trim().Contains(optionToCheck.ToLower().Trim());
+        }
+        #endregion
     }
 }
