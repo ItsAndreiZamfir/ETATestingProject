@@ -15,7 +15,7 @@ namespace ETAAutomationTesting.Tests
         PracticeFormPage practiceFormPage;
 
         [Test]
-        public void ClickOnTextBoxSectionInElementsNavBar()
+        public void ValidatePracticeFormSection()
         {
             homePage = new HomePage(driver);
             homePage.navigateToDemoQAPage();

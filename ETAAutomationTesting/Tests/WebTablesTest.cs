@@ -15,7 +15,7 @@ namespace ETAAutomationTesting.Tests
         WebTablesPage webTablesPage;
 
         [Test]
-        public void ClickOnTextBoxSectionInElementsNavBar()
+        public void ValidateWebTableSection()
         {
             homePage = new HomePage(driver);
             homePage.navigateToDemoQAPage();
