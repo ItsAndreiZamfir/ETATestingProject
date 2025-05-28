@@ -10,5 +10,6 @@ namespace ETAAutomationTesting.Browser
     {
         public const string BROWSER_CHROME = "Chrome";
         public const string BROWSER_EDGE = "Edge";
+        public const string BROWSER_FIREFOX = "Firefox";
     }
 }

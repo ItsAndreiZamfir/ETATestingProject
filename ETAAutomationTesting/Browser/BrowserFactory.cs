@@ -13,7 +13,7 @@ namespace ETAAutomationTesting.Browser
         {
             string browser = BrowserType.BROWSER_CHROME;
 
-            switch(browser)
+            switch (browser)
             {
                 case BrowserType.BROWSER_CHROME:
                     ChromeServicies chromeService = new ChromeServicies();
@@ -23,6 +23,10 @@ namespace ETAAutomationTesting.Browser
                     EdgeServicies edgeService = new EdgeServicies();
                     edgeService.OpenBrowser();
                     return (WebDriver)new EdgeServicies().WebDriver;
+                case BrowserType.BROWSER_FIREFOX:
+                    FirefoxServicies firefoxService = new FirefoxServicies();
+                    firefoxService.OpenBrowser();
+                    return (WebDriver)firefoxService.WebDriver;
                 default:
                     throw new ArgumentException("Unknown browser type: " + browser);
             }

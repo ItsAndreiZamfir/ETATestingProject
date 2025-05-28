@@ -6,7 +6,7 @@ namespace TestSeleniumWithC_.Tests
 {
     public class BaseTest
     {
-        protected WebDriver driver;
+        protected IWebDriver driver;
         BasePage page;
 
         [SetUp]
