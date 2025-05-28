@@ -1,18 +1,18 @@
-﻿using ETAAutomationTesting.Pages;
+﻿using ETAAutomationTesting.Browser;
+using ETAAutomationTesting.Pages;
 using OpenQA.Selenium;
 
 namespace TestSeleniumWithC_.Tests
 {
     public class BaseTest
     {
-        protected IWebDriver driver;
+        protected WebDriver driver;
         BasePage page;
 
         [SetUp]
         public void setup()
         {
-            page = new BasePage(null);
-            driver = page.StartWebDriver("chrome");
+            driver = BrowserFactory.GetBrowserService();
             Assert.NotNull(driver, "WebDriver is null");
         }
 
