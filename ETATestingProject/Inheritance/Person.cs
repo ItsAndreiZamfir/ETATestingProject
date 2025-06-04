@@ -23,5 +23,10 @@ namespace ETATestingProject.Inheritance
         {
             Console.WriteLine($"Name: {name}, Age: {age}, Weight: {weight}");
         }
+
+        public virtual void Speak()
+        {
+            Console.WriteLine($"{name} is speaking.");
+        }
     }
 }

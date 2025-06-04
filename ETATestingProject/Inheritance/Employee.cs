@@ -25,5 +25,10 @@ namespace ETATestingProject.Inheritance
         {
             Console.WriteLine($"Job Title: {jobTitle}, Salary: {salary}, Company: {company}");
         }
+
+        public override void Speak()
+        {
+           Console.WriteLine($"{name} is speaking about their job as a {jobTitle} at {company}.");
+        }
     }
 }

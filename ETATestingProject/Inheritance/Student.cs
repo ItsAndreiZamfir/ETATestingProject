@@ -23,5 +23,10 @@ namespace ETATestingProject.Inheritance
         {
             Console.WriteLine($"University: {university}, Profile: {profile}, Have Scholarship: {haveScholarship}");
         }
+
+        public override void Speak()
+        {
+            Console.WriteLine($"{name} is speaking about their studies in {profile} at {university}.");
+        }
     }
 }
