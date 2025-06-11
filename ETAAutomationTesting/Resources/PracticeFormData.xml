@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<DataSets>
+	<DataSet_1>
+		<FirstName>Andrei</FirstName>
+		<LastName>Zamfir</LastName>
+		<Email>test@test.com</Email>
+		<Gender>Male</Gender>
+		<Mobile>0722323232</Mobile>
+		<DateOfBirth>04 May 2025</DateOfBirth>
+		<Subjects>English</Subjects>
+		<Hobbies>Sports,Music</Hobbies>
+		<Address>Somewhere in Pitesti</Address>
+		<State>NCR</State>
+		<City>Delhi</City>
+	</DataSet_1>
+</DataSets>

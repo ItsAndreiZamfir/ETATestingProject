@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<DataSets>
+	<DataSet_1>
+		<FullName>Andrei Zamfir</FullName>
+		<Email>test@test.com</Email>
+		<CurrentAddress>asdsad</CurrentAddress>
+		<PermanentAddress>asdadad</PermanentAddress>
+	</DataSet_1>
+	<DataSet_2>
+		<FullName>Andrei Ionescu</FullName>
+		<Email>test2@test.com</Email>
+		<CurrentAddress>addres2</CurrentAddress>
+		<PermanentAddress>address23</PermanentAddress>
+	</DataSet_2>
+</DataSets>
