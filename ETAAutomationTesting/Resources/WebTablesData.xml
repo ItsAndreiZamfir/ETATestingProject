@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<DataSets>
+	<DataSet_1>
+		<FirstName>Andrei</FirstName>
+		<LastName>Zamfir</LastName>
+		<Email>test@test.com</Email>
+		<Age>27</Age>
+		<Salary>90000</Salary>
+		<Department>Automation Testing</Department>
+	</DataSet_1>
+	<DataSet_2>
+		<FirstName>Andrei</FirstName>
+		<LastName>Ionescu</LastName>
+		<Email>test2@test.com</Email>
+		<Age>29</Age>
+		<Salary>70000</Salary>
+		<Department>Software Testing</Department>
+	</DataSet_2>
+</DataSets>

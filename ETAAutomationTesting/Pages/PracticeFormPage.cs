@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using ETAAutomationTesting.HelperMethods;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace ETAAutomationTesting.Pages
 {
     public class PracticeFormPage : BasePage
     {
+        private DateTimeMethods dateTimeMethods = new DateTimeMethods();
         public PracticeFormPage(IWebDriver webDriver) : base(webDriver)
         {
         }
@@ -92,7 +94,7 @@ namespace ETAAutomationTesting.Pages
 
         public void SelectDateOfBirth(string dateOfBirth)
         {
-            DateTime date = DateTime.Parse(dateOfBirth);
+            DateTime date = dateTimeMethods.FormatDate(dateOfBirth);
 
             elementMethods.ClickElement(dateOfBirthElement);
 
@@ -159,7 +161,5 @@ namespace ETAAutomationTesting.Pages
             if (studentAddress != address) throw new Exception($"Expected Address: {address}, but got: {studentAddress}");
             if (studentStateAndCity != $"{state} {city}") throw new Exception($"Expected State and City: {state} {city}, but got: {studentStateAndCity}");
         }
-
-
     }
 }
