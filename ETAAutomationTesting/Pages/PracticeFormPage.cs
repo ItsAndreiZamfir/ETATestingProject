@@ -94,7 +94,8 @@ namespace ETAAutomationTesting.Pages
 
         public void SelectDateOfBirth(string dateOfBirth)
         {
-            DateTime date = dateTimeMethods.FormatDate(dateOfBirth);
+            DateTime date = DateTime.Parse(dateOfBirth);
+            //DateTime date = dateTimeMethods.FormatDate(dateOfBirth);
 
             elementMethods.ClickElement(dateOfBirthElement);
 
